@@ -1,0 +1,6 @@
+    "mongoose-slug-generator": "^1.0.4"
+
+create: post
+update: put, patch
+delete: delete
+read: get

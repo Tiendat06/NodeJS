@@ -1,0 +1,52 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "prettier_git": "lint-staged",
+    "prettier_all": "npx prettier --write .",
+    "prettier": "prettier --single-quote --trailing-comma all --tab-width 4 --write \"src/**/*.{js,json,scss,hbs}\"",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass -w src/resources/scss/ -o src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tiendat06/nodejs.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "TD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tiendat06/nodejs/issues"
+  },
+  "homepage": "https://github.com/Tiendat06/nodejs#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss,hbs}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.2.2",
+    "mongoose-delete": "^1.0.1",
+    "mongoose-slug-generator": "^1.0.4",
+    "mongoose-unique-validator": "^4.0.0"
+  }
+}

@@ -1,0 +1,37 @@
+{{!-- <h1>{{result}}</h1> --}}
+{{! <ul> }}
+{{!-- {{#each result}}
+    <li>{{this}}</li>
+    {{/each}} --}}
+{{! </ul> }}
+<div class='mt-5 container'>
+    <div class='row'>
+        {{#each result}}
+            <div class='col-lg-4 col-md-6 col-sm-12 p-3'>
+                <div
+                    style='height: 410px;'
+                    class='w-100 card card-items'
+                    style='width: 18rem;'
+                >
+                    <a href='/course/{{this.slug}}'>
+                        <img
+                            class='card-img-top'
+                            src='{{this.image}}'
+                            alt='Card image cap'
+                        />
+                    </a>
+                    <div class='card-body'>
+                        <a href='/course/{{this.slug}}'>
+                            <h5 class='card-title'>{{this.name}}</h5>
+                        </a>
+                        <p class='card-text'>{{this.description}}</p>
+                        <a
+                            href='/course/{{this.slug}}'
+                            class='btn btn-primary'
+                        >Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

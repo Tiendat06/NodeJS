@@ -1,0 +1,105 @@
+<div class='mt-5'>
+
+  <div>
+    <h3>My Courses</h3>
+    <a href="/me/trash/courses">Recycle Bin</a>
+  </div>
+    {{!-- {{courses}} --}}
+    <table class='table mt-4'>
+        <thead>
+            <tr>
+                <th scope='col'>#</th>
+                <th scope='col'>Name</th>
+                <th scope='col'>Level</th>
+                <th colspan="2" scope='col'>Time created</th>
+                {{!-- <th scope='col'></th> --}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each courses}}
+            {{!-- {{var i = 0}} --}}
+            <tr>
+                <th scope='row'>{{sum @index 1}}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.level}}</td>
+                <td>{{this.createdAt}}</td>
+                <td>
+                    <a href="/course/{{this._id}}/edit" class="btn btn-link">Edit</a>
+                    {{!--  --}}
+                    <a data-toggle="modal" data-target="#exampleModal" href="" data-id="{{this._id}}" class="btn btn-link">Delete</a>
+                </td>
+            </tr>
+
+            {{else}}
+            <tr>
+              <td colspan="5" class="text-center">
+                You are not register any courses.
+                <a href="/course/create">Register courses</a>
+              </td>
+            </tr>
+            {{/each}}
+            {{!-- <tr>
+                <th scope='row'>2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope='row'>3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr> --}}
+        </tbody>
+    </table>
+</div>
+
+{{!-- confirm delete course --}}
+
+<div id="exampleModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete course?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure to delete this course?</p>
+        </div>
+        <div class="modal-footer">
+        <a id="btn-delete-course" style="color: #fff;" class="btn btn-danger">Delete</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- f8 create form --}}
+{{!-- <form name="form-delete" action="" method="post"></form> --}}
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function(){
+    // when dialog confirm click
+    var courseID;
+    // var form_delete = document.forms['form-delete'];
+    $('#exampleModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      courseID = button.data('id') // Extract info from data-* attributes
+      // console.log(courseID)
+    });
+
+    var btnDeleteCourse = document.getElementById('btn-delete-course');
+    btnDeleteCourse.onclick = function(){
+      btnDeleteCourse.href = `/course/${courseID}/delete`
+      
+      // cách tạo form (f8) => routes change to delete
+      // form_delete.action = `/course/${courseID}/delete?_method=DELETE`;
+      // form_delete.submit();
+      // console.log(courseID);
+    };
+  });
+
+</script>

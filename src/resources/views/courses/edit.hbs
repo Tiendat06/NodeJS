@@ -1,0 +1,77 @@
+<div class='mt-5'>
+    <h3>Edit Course</h3>
+    <form method='post' action='/course/{{courses._id}}?_method=PUT'>
+        <div class='form-group'>
+            {{! Lập trình C++ cơ bản, nâng cao }}
+            <label for='name'>Course Name</label>
+            <input
+                name='name'
+                value='{{courses.name}}'
+                type='text'
+                class='form-control'
+                id='name'
+                placeholder='Enter course name...'
+            />
+        </div>
+
+        {{! Khóa học lập trình C++ từ cơ bản tới nâng cao dành cho người mới bắt đầu. Mục tiêu của khóa học này nhằm giúp các bạn nắm được các khái niệm căn cơ của lập trình, giúp các bạn có nền tảng vững chắc để chinh phục con đường trở thành một lập trình viên. }}
+        <div class='form-group'>
+            <label for='des'>Course Description</label>
+            <textarea
+                name='description'
+                cols='30'
+                rows='5'
+                class='form-control'
+                id='des'
+                placeholder='Enter course description...'
+            >{{courses.description}}</textarea>
+        </div>
+
+        {{! https://files.fullstack.edu.vn/f8-prod/courses/21/63e1bcbaed1dd.png }}
+        <div class='form-group'>
+            <label for='img'>Course Img</label>
+            <input
+                name='image'
+                value='{{courses.image}}'
+                type='text'
+                class='form-control'
+                id='img'
+                placeholder='Enter course img...'
+            />
+        </div>
+
+        {{! cpp }}
+        {{! <div class="form-group">
+            <label for="slug">Course Slug</label>
+            <input name="slug" value="cpp" type="text" class="form-control" id="slug" placeholder="Enter course slug...">
+        </div> }}
+
+        {{! Da1tpV9TMU0 }}
+        <div class='form-group'>
+            <label for='vidid'>Course VideoID</label>
+            <input
+                name='videoID'
+                value='{{courses.videoID}}'
+                type='text'
+                class='form-control'
+                id='vidid'
+                placeholder='Enter course video id...'
+            />
+        </div>
+
+        {{! high }}
+        <div class='form-group'>
+            <label for='level'>Course Level</label>
+            <input
+                name='level'
+                value='{{courses.level}}'
+                type='text'
+                class='form-control'
+                id='level'
+                placeholder='Enter course video id...'
+            />
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Save</button>
+    </form>
+</div>
